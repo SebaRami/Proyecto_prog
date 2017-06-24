@@ -16,18 +16,15 @@ int Lista_InsertarFin(ListaEnlazada *lista, void *objeto){
 	}
 	else{
 		//Encontramos el ultimo de esta lista
-		ElementoLista *temporal = &(lista->ancla);
-		while(temporal-> siguiente != &(lista->ancla)){
-			temporal = temporal -> siguiente;
-		}
+		
 		(nuevo->siguiente) = &(lista->ancla);
-		(nuevo-> anterior) = temporal;
-		(temporal -> siguiente) = nuevo;
+		(nuevo-> anterior) = (lista->ancla).anterior;
+		(lista -> ancla.anterior) -> siguiente = nuevo;
 		(lista->ancla).anterior = nuevo;
 		
 	}
 	nuevo->objeto = objeto;
 	lista->numeroElementos += 1;
-	return 0;
+	return 1;
 	
 }

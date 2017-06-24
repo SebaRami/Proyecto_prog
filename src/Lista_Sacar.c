@@ -6,7 +6,7 @@
 #include "../include/miLista.h"
 void Lista_Sacar(ListaEnlazada *lista, ElementoLista *elemento){
 	if((lista->numeroElementos) == 0){
-		return ;
+		return;
 	}
 	else{
 		ElementoLista * temporal = &(lista->ancla);
@@ -19,7 +19,7 @@ void Lista_Sacar(ListaEnlazada *lista, ElementoLista *elemento){
 		temporal -> objeto = NULL;
 		temporal -> objeto = NULL;
 		lista -> numeroElementos -= 1;
-		
+		return;
 	}
 }
 

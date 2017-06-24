@@ -25,8 +25,6 @@ void ImprimirLista(ListaEnlazada *lista, int numeroElementos){
 }
 
 
-
-
 /*Llena la lista*/
 void LlenarLista(ListaEnlazada *lista, int numeroElementos){
 
@@ -38,8 +36,7 @@ void LlenarLista(ListaEnlazada *lista, int numeroElementos){
 }
 
 /*Devuelve numero aleatorio de entre 0 y numeroElementos - 1*/
-long IndiceAleatorio(int numeroElementos)
-{
+long IndiceAleatorio(int numeroElementos){
 	srand(time(NULL));
 	long r = (rand() % numeroElementos);
 
@@ -48,8 +45,7 @@ long IndiceAleatorio(int numeroElementos)
 
 
 /*Baraja los elementos de la lista*/
-int BarajarLista(ListaEnlazada *lista, int numeroElementos)
-{
+int BarajarLista(ListaEnlazada *lista, int numeroElementos){
 
 	int i = 0;
 
@@ -85,7 +81,7 @@ int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 				printf("%lu\n", (long)elem->objeto);
 #endif
 				break;
-			}
+			} 
 
 			j++;
 		}
@@ -105,6 +101,7 @@ int BarajarLista(ListaEnlazada *lista, int numeroElementos)
 		free(elem);
 		Lista_InsertarFin(&lista_tmp, objeto);
 	}
+
 
 	/*Aqui lista debe estar vacia...*/
 	if (!Lista_Vacia(lista)){
@@ -531,12 +528,12 @@ void RealizarPruebas(int numeroElementos)
 int main(int argc, char *argv[])
 {
 
-	if (argc < 2){
+	/*if (argc < 2){
 		fprintf(stderr, "Por favor ingrese el numero de elementos como argumento ej.: ./prueba 1234");
 		exit(-1);
-	}
+	}*/
 
-	int elementos = atoi(argv[1]);
+	int elementos = 5/*atoi(argv[1])*/;
 	RealizarPruebas(elementos);
 	return 0;
 }

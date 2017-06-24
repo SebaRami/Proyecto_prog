@@ -11,9 +11,9 @@
 @author PACMAN S.A.  */
 
 int Lista_Inicializar( ListaEnlazada *lista){
-  (lista->ancla).siguiente=NULL;
-  (lista->ancla).anterior=NULL;
-  (lista->ancla).objeto=NULL;
+  (lista->ancla).siguiente = NULL;
+  (lista->ancla).anterior = NULL;
+  (lista->ancla).objeto = NULL;
   lista->numeroElementos = 0;
   return 1;
 }
