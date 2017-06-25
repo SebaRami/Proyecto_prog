@@ -12,20 +12,20 @@ int Lista_InsertarDespues(ListaEnlazada *lista, void *objeto, ElementoLista *ele
 		return -1;
 	}
 	else{
-		ElementoLista * temporal = Lista_Buscar(lista, (elemento -> objeto));
-		ElementoLista *nuevo = (ElementoLista *)malloc(sizeof(ElementoLista*));
-		if(nuevo == NULL){
+		ElementoLista *temporal = (ElementoLista *)malloc(sizeof(ElementoLista*));
+		if(temporal == NULL){
 			return -1;
 		}
 		
-		nuevo -> siguiente = NULL;
-		nuevo -> anterior = NULL;
-		nuevo -> objeto = objeto;
+		temporal -> siguiente = NULL;
+		temporal -> anterior = NULL;
+		temporal -> objeto = objeto;
 		
-		nuevo -> siguiente = temporal -> siguiente;
-		(temporal -> siguiente) -> anterior = nuevo;
-		(temporal-> siguiente) = nuevo;
-		nuevo-> anterior= temporal;
+		temporal -> anterior = elemento;
+		temporal -> siguiente = elemento ->siguiente;
+		(elemento -> siguiente) -> anterior = temporal;
+		elemento -> siguiente = temporal;
+		
 		lista -> numeroElementos += 1;
 		return 0;
 		

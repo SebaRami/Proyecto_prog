@@ -8,9 +8,11 @@
 ElementoLista *Lista_Ultimo(ListaEnlazada *lista){
 	if(lista->numeroElementos==0){
 		return NULL;
-	}else{
-		ElementoLista *elemento;
-		elemento = (lista->ancla).anterior;
-		return elemento;
+	}
+	if(lista == NULL){
+		return NULL;
+	}
+	else{
+		return (lista->ancla).anterior;
 	}
 }

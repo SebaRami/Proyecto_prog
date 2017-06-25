@@ -6,11 +6,10 @@
 #include "../include/miLista.h"
 
 void Lista_SacarTodos(ListaEnlazada *lista){
-	ElementoLista * elemento = &(lista->ancla);
-	for (int i = 0; i < lista->numeroElementos; i++){
-		elemento -> siguiente = NULL;
-		elemento -> anterior = NULL;
-		elemento -> objeto = NULL;
+	if(lista!=NULL){
+		lista->ancla.siguiente=&(lista->ancla);
+		lista->ancla.anterior=&(lista->ancla);
+		lista->ancla.objeto=NULL;
+		lista->numeroElementos = 0;
 	}
-	Lista_Inicializar(lista);
 }

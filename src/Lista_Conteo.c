@@ -7,5 +7,11 @@
 #include "../include/miLista.h"
 
 int Lista_Conteo(ListaEnlazada *lista){
-	return lista->numeroElementos;
+	
+	if(lista==NULL ){
+		return 0;
+	}
+	else{
+		return lista->numeroElementos;
+	}
 }

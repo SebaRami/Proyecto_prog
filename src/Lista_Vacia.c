@@ -4,7 +4,11 @@
 
 int Lista_Vacia(ListaEnlazada *lista){
 	if (lista->numeroElementos == 0) {
-		return TRUE;
+		return 1;
 	}
-	return FALSE;
+	if (lista == NULL){
+		return 1;
+	}
+	return 0;
+
 }

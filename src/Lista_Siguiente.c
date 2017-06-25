@@ -8,9 +8,15 @@ ElementoLista *Lista_Siguiente(ListaEnlazada *lista, ElementoLista *elemento){
 	if((lista->numeroElementos) == 0){
 		return NULL;
 	}
-	ElementoLista* elem = Lista_Buscar(lista, elemento->objeto);
-	if (elem == NULL) {
+	if (lista == NULL) {
 		return NULL;
 	}
-	return elem->siguiente;
+	if(elemento == NULL){
+		return NULL;
+	}
+	if(elemento ==  Lista_Ultimo(lista)){
+    		return NULL;
+	}
+	return elemento->siguiente;
+
 }

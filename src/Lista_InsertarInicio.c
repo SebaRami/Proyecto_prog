@@ -6,27 +6,32 @@
 #include "../include/miLista.h"
 
 int Lista_InsertarInicio(ListaEnlazada *lista, void *objeto){
-	ElementoLista *nuevo = (ElementoLista *)malloc(sizeof(ElementoLista*));
-	if (nuevo == NULL) return -1;
+	
+	if(lista== NULL){
+		return -1;
+	}
+	ElementoLista *temporal = NULL;
+	
+	if ((temporal = (ElementoLista *)malloc (sizeof(ElementoLista))) == NULL){
+		return 0;
+	}
+	
 	if((lista->numeroElementos) == 0){
-		nuevo-> siguiente = &(lista -> ancla);
-		nuevo-> anterior = &(lista -> ancla);
-		(lista -> ancla).siguiente = nuevo; 
-		(lista -> ancla).anterior = nuevo; 
+		temporal-> siguiente = &(lista -> ancla);
+		temporal-> anterior = &(lista -> ancla);
+		(lista -> ancla).siguiente = temporal; 
+		(lista -> ancla).anterior = temporal; 
 	}
 	else{
 		
-		ElementoLista *temporal = &(lista->ancla);
-		while(temporal-> siguiente != &(lista->ancla)){
-			temporal = temporal -> siguiente;
-		}
-		(nuevo->siguiente) = &(lista->ancla);
-		(nuevo-> anterior) = temporal;
-		(temporal -> siguiente) = nuevo;
-		(lista->ancla).siguiente = nuevo;
+		ElementoLista * inicio= (lista->ancla).siguiente;
+		(temporal->siguiente) = inicio;
+		(temporal-> anterior) = &(lista->ancla);
+		(inicio -> anterior) = temporal;
+		(lista->ancla).siguiente = temporal;
 		
 	}
-	nuevo->objeto = objeto;
+	temporal->objeto = objeto;
 	lista->numeroElementos += 1;
 	return 0;
 	

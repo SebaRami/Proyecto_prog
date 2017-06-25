@@ -5,14 +5,11 @@
 #include <assert.h>     /* assert */
 #include "../include/miLista.h"
 
-/*Este metodo iniciliza los elementos de la estructura ListaEnlazada
-@param *puntero a una lista que inicializaremos
-@return un entero     
-@author PACMAN S.A.  */
+
 
 int Lista_Inicializar( ListaEnlazada *lista){
-  (lista->ancla).siguiente = NULL;
-  (lista->ancla).anterior = NULL;
+  (lista->ancla).siguiente = &(lista->ancla);
+  (lista->ancla).anterior = &(lista->ancla);
   (lista->ancla).objeto = NULL;
   lista->numeroElementos = 0;
   return 1;

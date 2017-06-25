@@ -6,25 +6,29 @@
 #include "../include/miLista.h"
 
 int Lista_InsertarFin(ListaEnlazada *lista, void *objeto){
-	ElementoLista *nuevo = (ElementoLista *)malloc(sizeof(ElementoLista*));
-	if (nuevo == NULL) return -1;
-	if((lista->numeroElementos) == 0){
-		nuevo-> siguiente = &(lista -> ancla);
-		nuevo-> anterior = &(lista -> ancla);
-		(lista -> ancla).siguiente = nuevo; 
-		(lista -> ancla).anterior = nuevo; 
+
+	if(lista==NULL){
+		return -1;
 	}
-	else{
-		//Encontramos el ultimo de esta lista
-		
-		(nuevo->siguiente) = &(lista->ancla);
-		(nuevo-> anterior) = (lista->ancla).anterior;
-		(lista -> ancla.anterior) -> siguiente = nuevo;
-		(lista->ancla).anterior = nuevo;
-		
-	}
-	nuevo->objeto = objeto;
-	lista->numeroElementos += 1;
-	return 1;
+	ElementoLista *temporal= NULL;
+	if ((temporal = (ElementoLista *)malloc (sizeof(ElementoLista))) == NULL){
+    	return -1;
+    }
+    if((lista->numeroElementos) == 0){
+		temporal->siguiente=&(lista->ancla);
+		temporal->anterior = &(lista->ancla);
+		(lista->ancla).siguiente=temporal;
+		(lista->ancla).anterior=temporal;
+    }
+    else{
+    	ElementoLista *final = (lista->ancla).anterior;
+		temporal->siguiente=&(lista->ancla);
+		temporal->anterior = final;
+		final->siguiente=temporal;
+		(lista->ancla).anterior=temporal;
+    }
+    temporal->objeto=objeto;
+    lista->numeroElementos += 1;
+	return 0;
 	
 }

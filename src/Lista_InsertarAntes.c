@@ -8,10 +8,13 @@ int Lista_InsertarAntes(ListaEnlazada *lista, void *objeto, ElementoLista *eleme
 	if((lista->numeroElementos) == 0){
 		return -1;
 	}
-	else if(elemento == NULL){
+	if(elemento == NULL){
 		return -1;
 	}
-	else{
+	if(lista == NULL){
+		return -1;
+	}
+	else{		
 		ElementoLista * temporal = Lista_Buscar(lista, (elemento -> objeto));
 		ElementoLista *nuevo = (ElementoLista *)malloc(sizeof(ElementoLista*));
 		if(nuevo == NULL){
@@ -32,4 +35,5 @@ int Lista_InsertarAntes(ListaEnlazada *lista, void *objeto, ElementoLista *eleme
 		return 0;
 		
 	}
+	return 0;
 }

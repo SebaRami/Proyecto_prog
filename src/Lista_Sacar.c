@@ -8,6 +8,12 @@ void Lista_Sacar(ListaEnlazada *lista, ElementoLista *elemento){
 	if((lista->numeroElementos) == 0){
 		return;
 	}
+	if(lista == NULL){
+		return;
+	}
+	if((lista->numeroElementos) == 1){
+		Lista_Inicializar(lista);
+	}
 	else{
 		ElementoLista * temporal = &(lista->ancla);
 		while(temporal != elemento){

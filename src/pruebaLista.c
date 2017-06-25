@@ -528,12 +528,12 @@ void RealizarPruebas(int numeroElementos)
 int main(int argc, char *argv[])
 {
 
-	/*if (argc < 2){
+	if (argc < 2){
 		fprintf(stderr, "Por favor ingrese el numero de elementos como argumento ej.: ./prueba 1234");
 		exit(-1);
-	}*/
+	}
 
-	int elementos = 5/*atoi(argv[1])*/;
+	int elementos = atoi(argv[1]);
 	RealizarPruebas(elementos);
 	return 0;
 }
