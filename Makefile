@@ -15,4 +15,7 @@ liblista: listas
 listas: $(SRCSLISTAS)
 	gcc -Wall -shared -fPIC -c $(INCLUDE) $(SRCSLISTAS)
 	mv -f *.o obj/
-	
+
+.PHONY: clean
+clean:
+	rm -rf obj/* bin/* lib/*
